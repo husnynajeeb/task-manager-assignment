@@ -9,12 +9,12 @@ import { UpdateTaskDto } from './dto/update-task.dto';
 export class TasksService {
   private tasks: Task[] = [];
 
-  // LLM: Returns all tasks stored in memory.
+  //  Returns all tasks stored in memory.
   findAll(): Task[] {
     return this.tasks;
   }
 
-  // LLM: Finds a task by ID or throws a 404 error.
+  //  Finds a task by ID or throws a 404 error.
   findOne(id: string): Task {
     const task = this.tasks.find((item) => item.id === id);
 
@@ -25,7 +25,7 @@ export class TasksService {
     return task;
   }
 
-  // LLM: Creates and stores a new task.
+  //  Creates and stores a new task.
   create(createTaskDto: CreateTaskDto): Task {
     const task: Task = {
       id: randomUUID(),
@@ -40,7 +40,7 @@ export class TasksService {
     return task;
   }
 
-  // LLM: Updates an existing task with the supplied fields.
+  //  Updates an existing task with the supplied fields.
   update(id: string, updateTaskDto: UpdateTaskDto): Task {
     const task = this.findOne(id);
 
@@ -49,7 +49,7 @@ export class TasksService {
     return task;
   }
 
-  // LLM: Deletes an existing task from memory.
+  //  Deletes an existing task from memory.
   remove(id: string): { message: string } {
     const task = this.findOne(id);
 
